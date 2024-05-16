@@ -1,0 +1,17 @@
+[Unit]
+Description=ESP-AT OTA Update Webserver.
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/esp-at-ota-update-webserver/webserver.py
+User=user
+Group=user
+StandardOutput=journal
+StandardError=journal
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
